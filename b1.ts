@@ -10,7 +10,7 @@ class Fraction {
 
   public scan(): void {
     let isAgain: boolean = true;
-    while (isAgain) {
+    while (true) {
       this._tuso = questionInt("Nhap tu so: ");
       this._mauso = questionInt("Nhap mau so: ");
 
@@ -19,6 +19,10 @@ class Fraction {
         isAgain = keyInYN("Ban muon nhap lai khong?") as boolean;
       } else {
         isAgain = false;
+      }
+
+      if (!isAgain) {
+        break;
       }
     }
   }
@@ -118,6 +122,4 @@ class Fraction {
   }
 }
 
-let f1: Fraction = new Fraction(3, 7);
-f1.scan();
-f1.print();
+export { Fraction };

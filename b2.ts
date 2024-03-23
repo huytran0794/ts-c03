@@ -124,6 +124,7 @@ class IntArray {
   public erase(idx: number): number {
     if (idx === undefined) {
       this._intArr = [];
+      return -1;
     }
     if (idx < 0 || idx > this._intArr.length - 1) {
       throw new Error("Invalid index");
