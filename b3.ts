@@ -71,29 +71,6 @@ class FractionList {
     this._fractions.length = this._fractions.length - 1;
   }
 
-  // private shiftRightEl(shiftLength: number): void {
-  //   for (
-  //     let i = this._fractions.length - 1 + shiftLength;
-  //     i >= shiftLength;
-  //     i--
-  //   ) {
-  //     this._fractions[i] = this._fractions[i - shiftLength];
-  //   }
-  // }
-
-  // insert(idx: number, fraction: Fraction): void {
-  //   // shift element start from the idx to the right
-  //   for (let i = this._fractions.length; i > idx; i--) {
-  //     this._fractions[i] = this._fractions[i - 1];
-  //   }
-  //   this._fractions[idx] = fraction;
-  // }
-  //   insert(idx: number, fraction: Fraction[]): void {
-  //     for(let i = 0; i < fraction.length; i++) {
-  //       this._fractions[idx + i] = fraction[i];
-  //     }
-  //   }
-
   // overloading insert function
 
   insert(idx: number, fraction: Fraction): void;
@@ -247,7 +224,6 @@ newFractionList.insert(2, [new Fraction(2, 3), new Fraction(5, 17)]);
 console.log("fract list after modified");
 console.log(newFractionList.print());
 
-
 // test erase
 // newFractionList.erase();
 // newFractionList.erase(1);
@@ -256,7 +232,7 @@ console.log(newFractionList.print());
 // newFractionList.erase(1, -5);
 newFractionList.erase(2, 4);
 
-console.log('fract list after removed items')
+console.log("fract list after removed items");
 console.log(newFractionList.print());
 
 // test swap
