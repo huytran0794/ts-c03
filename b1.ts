@@ -145,7 +145,7 @@ plusResult.print();
 // test multiply
 let multiplyResult: Fraction = fraction.multiply(fraction2);
 console.log(`multiply result = `);
-multiplyResult.print()
+multiplyResult.print();
 
 // compare
 let isEqual: boolean = fraction.equal(fraction2);
@@ -162,7 +162,7 @@ let isLessthan: boolean = fraction.lessThan(fraction2);
 console.log(
   isLessthan
     ? "fraction 1 is less than fraction 2"
-    : "fraction 1 is greater than fraction 2"
+    : "fraction 1 is not less than fraction 2"
 );
 
 export { Fraction };
