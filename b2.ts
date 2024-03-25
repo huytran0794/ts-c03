@@ -116,7 +116,6 @@ class IntArray {
 
   public addElements(p: IntArray): void {
     for (let i = 0; i < p.intArr.length; i++) {
-      console.log("leng of first array: ", this._intArr.length);
       this._intArr[this._intArr.length] = p.intArr[i];
     }
   }
@@ -176,12 +175,17 @@ let newArray3: IntArray = new IntArray(
 newArray.addElements(newArray2);
 console.log("new array");
 newArray.print();
+
+// add array 3
 newArray.addElements(newArray3);
-console.log("new array");
+console.log('new array after added array 3');
 newArray.print();
+// newArray.addElements(newArray3);
+// console.log("new array");
+// newArray.print();
 
-newArray.insert(7, 202);
-newArray.print();
+// newArray.insert(7, 202);
+// newArray.print();
 
-newArray.erase(1);
-console.log(newArray.intArr);
+// newArray.erase(1);
+// console.log(newArray.intArr);
