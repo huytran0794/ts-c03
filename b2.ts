@@ -163,25 +163,25 @@ class IntArray {
 let newArray: IntArray = new IntArray("newArray 1", 1, 2, 3, 4, 5, 6, 7);
 let clonedArray: IntArray = newArray.clone(1, 6);
 clonedArray.print();
-// let newArray2: IntArray = new IntArray("newArray 2", -1, -7, 10, 20, 22);
-// let newArray3: IntArray = new IntArray(
-//   "newArray 2",
-//   1000,
-//   9000,
-//   9001,
-//   9002,
-//   9003,
-//   -100002
-// );
-// newArray.addElements(newArray2);
-// console.log("new array");
-// newArray.print();
-// newArray.addElements(newArray3);
-// console.log("new array");
-// newArray.print();
+let newArray2: IntArray = new IntArray("newArray 2", -1, -7, 10, 20, 22);
+let newArray3: IntArray = new IntArray(
+  "newArray 2",
+  1000,
+  9000,
+  9001,
+  9002,
+  9003,
+  -100002
+);
+newArray.addElements(newArray2);
+console.log("new array");
+newArray.print();
+newArray.addElements(newArray3);
+console.log("new array");
+newArray.print();
 
-// newArray.insert(7, 202);
-// newArray.print();
+newArray.insert(7, 202);
+newArray.print();
 
-// newArray.erase(1);
-// console.log(newArray.intArr);
+newArray.erase(1);
+console.log(newArray.intArr);
