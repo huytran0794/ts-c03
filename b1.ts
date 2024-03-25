@@ -85,14 +85,8 @@ class Fraction {
 
   public equal(f: Fraction): boolean {
     this.reduce();
-    
-    console.log(`Phan so dau tien sau khi rut gon: ${this._tuso}/${this._mauso}`);
-
     f.reduce();
-    console.log(
-      `Phan so thu hai sau khi rut gon: ${f._tuso}/${f._mauso}`
-    );
-    
+
     return this._tuso === f._tuso && this._mauso === f._mauso;
   }
 
@@ -111,9 +105,6 @@ class Fraction {
 
     f._tuso *= tempMauSo;
     f._mauso *= tempMauSo;
-
-    console.log(`f1: ${this._tuso}/${this._mauso}`);
-    console.log(`f2: ${f._tuso}/${f._mauso}`);
 
     return this._tuso < f._tuso;
   }
