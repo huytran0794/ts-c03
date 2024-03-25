@@ -1,4 +1,4 @@
-import { keyInYN, question, questionInt } from "readline-sync";
+import { keyInYNStrict, questionInt } from "readline-sync";
 
 class Fraction {
   private _tuso: number;
@@ -16,7 +16,7 @@ class Fraction {
 
       if (this._mauso == 0) {
         console.log("Mau so phai khac 0");
-        isAgain = keyInYN("Ban muon nhap lai khong?") as boolean;
+        isAgain = keyInYNStrict("Ban muon nhap lai khong?") as boolean;
       } else {
         isAgain = false;
       }
@@ -66,37 +66,34 @@ class Fraction {
     }
   }
 
-  public plus(f: Fraction): void {
-    let tuso: number = this._tuso * f._mauso + this._mauso * f._tuso;
-    let mauso: number = this._mauso * f._mauso;
-    this._tuso = tuso;
-    this._mauso = mauso;
-    this.reduce();
-    console.log(`Phan so tong la: ${this._tuso}/${this._mauso}`);
+  public plus(f: Fraction): Fraction {
+    let tuso2: number = this._tuso * f._mauso + this._mauso * f._tuso;
+    let mauso2: number = this._mauso * f._mauso;
+    let newFraction: Fraction = new Fraction(tuso2, mauso2);
+    newFraction.reduce();
+    return newFraction;
   }
-  public multiply(f: Fraction): void {
-    let tuso: number = this._tuso * f._tuso;
-    let mauso: number = this._mauso * f._mauso;
-    this._tuso = tuso;
-    this._mauso = mauso;
-    this.reduce();
-    console.log(`Phan so tich la: ${this._tuso}/${this._mauso}`);
+
+  public multiply(f: Fraction): Fraction {
+    let tuso2: number = this._tuso * f._tuso;
+    let mauso2: number = this._mauso * f._mauso;
+
+    let newFraction: Fraction = new Fraction(tuso2, mauso2);
+    newFraction.reduce();
+    return newFraction;
   }
+
   public equal(f: Fraction): boolean {
     this.reduce();
-    let tempTuSo: number = this._tuso;
-    let tempMauSo: number = this._mauso;
+    
+    console.log(`Phan so dau tien sau khi rut gon: ${this._tuso}/${this._mauso}`);
 
-    this._tuso = f._tuso;
-    this._mauso = f._mauso;
-
-    this.reduce();
-
-    console.log(`Phan so dau tien sau khi rut gon: ${tempTuSo}/${tempMauSo}`);
+    f.reduce();
     console.log(
-      `Phan so thu hai sau khi rut gon: ${this._tuso}/${this._mauso}`
+      `Phan so thu hai sau khi rut gon: ${f._tuso}/${f._mauso}`
     );
-    return tempTuSo == this._tuso && tempMauSo == this._mauso;
+    
+    return this._tuso === f._tuso && this._mauso === f._mauso;
   }
 
   public lessThan(f: Fraction): boolean {
@@ -121,5 +118,60 @@ class Fraction {
     return this._tuso < f._tuso;
   }
 }
+
+let fraction: Fraction = new Fraction(1, 2);
+
+// test scan
+console.log("test scan");
+fraction.scan();
+
+// print
+console.log("fraction 1");
+fraction.print();
+
+// reduce fraction 1
+fraction.reduce();
+
+console.log("fraction 1 after reduce");
+fraction.print();
+
+let fraction2: Fraction = new Fraction(1, 2);
+// test scan & print
+console.log("fraction 2");
+fraction2.scan();
+fraction2.print();
+
+// reduce fraction 2
+fraction2.reduce();
+console.log("fraction 2 after reduce");
+fraction2.print();
+
+// test plus
+let plusResult: Fraction = fraction.plus(fraction2);
+console.log("Sum result =");
+plusResult.print();
+
+// test multiply
+let multiplyResult: Fraction = fraction.multiply(fraction2);
+console.log(`multiply result = `);
+multiplyResult.print()
+
+// compare
+let isEqual: boolean = fraction.equal(fraction2);
+
+console.log(
+  isEqual
+    ? "fraction 1 is equal to fraction 2"
+    : "fraction 1 is not equal to fraction 2"
+);
+
+// less than
+
+let isLessthan: boolean = fraction.lessThan(fraction2);
+console.log(
+  isLessthan
+    ? "fraction 1 is less than fraction 2"
+    : "fraction 1 is greater than fraction 2"
+);
 
 export { Fraction };
